@@ -39,6 +39,7 @@ app.use(passport.session());
 //  controllersMiddleware
 app.use('/', require('./controllers/index'));
 app.use('/', require('./controllers/auth'));
+app.use('/posts', require('./controllers/posts'));
 
 
 
