@@ -2,9 +2,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const morgan = require('morgan'); // curl
-const exphbs = require('express-handlebars');
 const session = require('express-session');
 const passport = require('passport');
+const methodOverride = require('method-override');
+
 
 
 
@@ -20,7 +21,11 @@ require('./config/passport')(passport);
 const app = express()
 
 
-//  middleware 
+//  middlewares
+// access to req.body 
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
+
 app.use(morgan('dev'));
 app.set('view engine', '.ejs');
 
@@ -38,7 +43,7 @@ app.use(passport.session());
 
 //  controllersMiddleware
 app.use('/', require('./controllers/index'));
-app.use('/', require('./controllers/auth'));
+app.use('/auth', require('./controllers/auth'));
 app.use('/posts', require('./controllers/posts'));
 
 
@@ -56,8 +61,6 @@ const db = mongoose.connection;
 db.on('error', () => { console.log('error') })
 db.on('connected', () => { console.log('Mongo is connected') })
 db.on('disconnected', () => { console.log('Mongo is disconnected') })
-
-
 
 
 
