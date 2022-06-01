@@ -80,12 +80,13 @@ a:hover {
 .post-container {
     /* border: 1px solid yellow; */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     position: relative;
     width: 40%;
     left: 600px;
     text-align: center;
     overflow: hidden;
+    padding-top: 10px;
 }
 .post-link {
     font-size: 20px;

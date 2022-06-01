@@ -46,12 +46,13 @@ router.put('/:id', userLogin, (req, res) => {
         new: true,
     },
         (err, updatedPost) => {
-            res.redirect(`/posts/${req.params._id}`);
+            res.redirect(`/posts/${req.params.id}`);
         })
 })
 
 //  create route 
 router.post('/', userLogin, (req, res) => {
+    req.body.user = req.user.firstName;
     Post.create(req.body, (err, createdPost) => {
         res.redirect('/posts');
     })
