@@ -1,0 +1,22 @@
+<body>
+    <nav>
+        <a href="/">See posts</a>
+        <br>
+        <a href="/new">Add a post</a>
+    </nav>
+
+    <ul>
+        <h2><%= post.title %></h2>
+        <img src="<%= post.img %>">
+
+        <div>
+            <!-- Delete form  method-override required for POST/GET-->
+            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE" class="submit-btn" />
+            </form>
+            <!-- === Edit ROUTE === -->
+            <a href="/posts/<%=post._id %>/edit">Edit</a>
+        </div>
+    </ul>
+
+</body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/header') %>
+
+    <div class="title-section">
+        <h3 class="login-tile">Welcome <%= name %></h3>
+    </div>
+    <%- include('partials/addBtn') %>
+
+    <div class="i-container">
+        <%if (posts.length > 0) {%>
+        <%posts.forEach(post => {%>
+        <div class="post">
+            <h2>
+                <a href="/posts/<%=post.id%>">
+                    <%=post.title%>
+                    <img src="<%=post.img%>">
+                </a>
+            </h2>
+        </div>
+        <%})%>
+        <%} else {%>
+        <p>No posts yet.</p>
+
+        <%}%>
+    </div>
+
+</body>
+
+</html>
