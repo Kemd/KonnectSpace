@@ -27,8 +27,10 @@ body {
     flex-direction: column;
 }
 
-nav {
-    border: 1px solid rgb(0, 129, 28);
+/* navigation  */
+.inner-nav ul li {
+    padding: 15px;
+    /* border: 1px solid red; */
 }
 
 .logout-btn {
@@ -50,7 +52,7 @@ nav {
 
 /* index container  */
 .i-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -60,7 +62,7 @@ nav {
 }
 
 label {
-    font-size: 15px;
+    font-size: 20px;
     color: rgb(255, 255, 255);
 }
 
@@ -76,11 +78,41 @@ a:hover {
 }
 
 .post-container {
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     position: relative;
     width: 40%;
     left: 600px;
     text-align: center;
+    overflow: hidden;
 }
+.post-link {
+    font-size: 20px;
+}
+
+.edit-container {
+    text-align: center;
+    border: 1px solid blue;
+    width: 50%;
+    color: whitesmoke;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+/* forms  */
+form {
+    font-size: 30px;
+}
+
+/* login container  */
+.login-container {
+    /* border: solid red 2px; */
+    width: 60%;
+    text-align: center;
+    padding: 30px;
+    /* background-image: url('https://cdn.mos.cms.futurecdn.net/grZ46G9d7YfYZq7VvJPSaB-1200-80.jpg'); */
+    color: black;
+}
+
+/* == general ==  */
