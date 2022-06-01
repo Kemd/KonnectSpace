@@ -1,15 +1,15 @@
-
+<%- include('partials/head') %>
 
 <!-- // adding a post -->
 
 <body>
 
-    <div class="new-container">
-        <div class="form-image"></div>
-        <div class="form">
-            <h1>Create a post</h1>
+    <div class="i-container">
+        <div class="i-image"></div>
+        <div class="i-form">
+            <h3>What's on your mind.. ?</h3>
             <form action="/posts" method="POST">
-                <label for="title">Name:</label><br>
+                <label for="title">Title:</label><br>
                 <input type="text" name="title" />
                 <br>
 
@@ -18,7 +18,7 @@
                 <br>
 
                 <label for="Submit"></label><br>
-                <input type="submit" value="Create" />
+                <input type="submit" value="Post" />
 
             </form>
         </div>

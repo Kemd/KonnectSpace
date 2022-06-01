@@ -9,25 +9,29 @@
     <div class="title-section">
         <h3 class="login-tile">Welcome <%= name %></h3>
     </div>
+    
     <%- include('partials/addBtn') %>
 
     <div class="i-container">
-        <%if (posts.length > 0) {%>
-        <%posts.forEach(post => {%>
-        <div class="post">
-            <h2>
-                <a href="/posts/<%=post.id%>">
-                    <%=post.title%>
-                    <img src="<%=post.img%>">
-                </a>
-            </h2>
-        </div>
-        <%})%>
-        <%} else {%>
-        <p>No posts yet.</p>
+        <div class="i-image"></div>
+        <div class="i-form">
+            <h3>What's on your mind.. ?</h3>
+            <form action="/posts" method="POST">
+                <label for="title">Title:</label><br>
+                <input type="text" name="title" />
+                <br>
 
-        <%}%>
+                <label for="image">Image:</label><br>
+                <input type="text" name="img" id="img" />
+                <br>
+
+                <label for="Submit"></label><br>
+                <input type="submit" value="Post" />
+
+            </form>
+        </div>
     </div>
+
 
 </body>
 
