@@ -77,6 +77,10 @@ a:hover {
     color: black;
 }
 
+input[type='submit']:hover {
+    cursor: pointer;
+}
+
 .post-container {
     /* border: 1px solid yellow; */
     display: flex;
@@ -115,5 +119,11 @@ form {
     /* background-image: url('https://cdn.mos.cms.futurecdn.net/grZ46G9d7YfYZq7VvJPSaB-1200-80.jpg'); */
     color: black;
 }
+
+ /* show page container */
+ .show-container {
+     text-align: center;
+     background-image: url('post.img');
+ }
 
 /* == general ==  */
