@@ -31,8 +31,8 @@
 
 ## Features / user stories
 
-Added user authentication with google using passport and passport-google-oauth20
-Added full CRUD functionality
+1. Added user authentication with google using passport and passport-google-oauth20
+2. Added full CRUD functionality
 
 - AAU - I should be able to login to see posts
 - AAU - I should be able to add a post while logged in
