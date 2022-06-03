@@ -52,7 +52,6 @@ router.put('/:id', userLogin, (req, res) => {
 
 //  create route 
 router.post('/', userLogin, (req, res) => {
-    req.body.user = req.user.firstName;
     Post.create(req.body, (err, createdPost) => {
         res.redirect('/posts');
     })
