@@ -2,7 +2,7 @@
 const express = require('express');
 const { userLogin, userNotLogin } = require('../authcheck/auth');
 const router = express.Router()
-const Post = require('../models/post');
+const Post = require('../models/Post');
 
 // ROUTES
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const { userLogin } = require('../authcheck/auth');
 const router = express.Router();
-const Post = require('../models/post');
+const Post = require('../models/Post');
 // seed data
 const postSeed = require('../models/postSeed');
 
