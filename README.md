@@ -14,7 +14,7 @@
 
 ### See the App live
 
-- [KonnectSpace](https://konnect-space.herokuapp.com/)
+- [KonnectSpace](https://konnect-space.onrender.com/)
 
 ---
 
