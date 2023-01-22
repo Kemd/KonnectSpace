@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
@@ -11,7 +12,6 @@ const database = require("ronin-database");
 const server = ronin.server();
 
 // load config
-require("dotenv").config();
 // passport config
 require("./config/passport")(passport);
 
@@ -29,11 +29,11 @@ app.set("view engine", ".ejs");
 
 // sessions middleware
 app.use(
-  session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: false,
-  })
+    session({
+        secret: "secret",
+        resave: false,
+        saveUninitialized: false,
+    })
 );
 
 // passport middleware
@@ -48,31 +48,41 @@ app.use("/posts", require("./controllers/posts"));
 //  public folder
 app.use("/public", express.static("public"));
 
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(process.env.DATABASE_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+// });
+const connectDB = async () => {
+    try {
+        const db = await mongoose.connect(process.env.DATABASE_URL)
 
-const db = mongoose.connection;
-db.on("error", () => {
-  console.log("error");
-});
-db.on("connected", () => {
-  console.log("Mongo is connected");
-});
-db.on("disconnected", () => {
-  console.log("Mongo is disconnected");
-});
+        console.log(`MongoDB Connected: ${db.connection.host}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+connectDB()
+
+// const db = mongoose.connection;
+// db.on("error", () => {
+//     console.log("error");
+// });
+// db.on("connected", () => {
+//     console.log("Mongo is connected");
+// });
+// db.on("disconnected", () => {
+//     console.log("Mongo is disconnected");
+// });
 
 // docker database config
 database.connect(process.env.DATABASE_URL);
 server.use("/foo", (req, res) => {
-  return res.json({ foo: "bar" });
+    return res.json({ foo: "bar" });
 });
 server.use("/", mocks.server(server.Router(), false, false));
 server.start();
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
